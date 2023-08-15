@@ -19,16 +19,26 @@ let bd = [
 let mainFilter = document.querySelector('.mainFilter')
 let filter = document.querySelector('#filter')
 
-filter.addEventListener('input', e => {
-    
-})
-
 bd.map(e=>{
     mainFilter.innerHTML+=`
     <div class="itemCard">
-        <img src="${e.img}" alt="">
         <h2>${e.title}</h2>
         <p>${e.price}</p>
     </div>
     `
 })
+
+filter.addEventListener('input', ev => {
+    mainFilter.innerHTML=' '
+    bd.map(e =>{
+        if(e.title.includes(ev.target.value)){
+            mainFilter.innerHTML+=`
+            <div class="itemCard">
+                <h2>${e.title}</h2>
+                <p>${e.price}</p>
+            </div>
+            `
+        }
+    })
+})
+
