@@ -17,8 +17,6 @@ let bd = [
 ]
 
 let mainFilter = document.querySelector('.mainFilter')
-let filter = document.querySelector('#filter')
-
 bd.map(e=>{
     mainFilter.innerHTML+=`
     <div class="itemCard">
@@ -28,7 +26,7 @@ bd.map(e=>{
     `
 })
 
-filter.addEventListener('input', ev => {
+document.querySelector('#filter').addEventListener('input', ev => {
     mainFilter.innerHTML=' '
     bd.map(e =>{
         if(e.title.includes(ev.target.value)){
